@@ -2,7 +2,6 @@ package book
 
 import (
 	"ca-library-app/internal/adapters/api"
-	"ca-library-app/internal/domain/book"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 )
@@ -13,10 +12,10 @@ const (
 )
 
 type handler struct {
-	bookService book.Service
+	bookService Service
 }
 
-func NewHandler(service book.Service) api.Handler {
+func NewHandler(service Service) api.Handler {
 	return &handler{bookService: service}
 }
 
