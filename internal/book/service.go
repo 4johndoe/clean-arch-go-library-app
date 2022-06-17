@@ -3,8 +3,9 @@ package book
 import "context"
 
 type Service interface {
-	GetBookByUUID(ctx context.Context, uuid string)
-	GetAllBooks(ctx context.Context, limit, offset int)
+	GetBookByUUID(ctx context.Context, uuid string) *Book
+	GetAllBooks(ctx context.Context, limit, offset int) []*Book
+	CreateBook(ctx context.Context, dto *CreateBookDto) *Book
 }
 
 type service struct {
