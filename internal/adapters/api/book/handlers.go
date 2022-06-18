@@ -19,7 +19,7 @@ func NewHandler(service Service) api.Handler {
 	return &handler{bookService: service}
 }
 
-func (h handler) Registry(router *httprouter.Router) {
+func (h handler) Register(router *httprouter.Router) {
 	router.GET(booksURL, h.GetAllBooks)
 }
 
