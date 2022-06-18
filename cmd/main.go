@@ -1,23 +1,20 @@
 package main
 
 import (
-	author3 "ca-library-app/internal/adapters/api/author"
-	book3 "ca-library-app/internal/adapters/api/book"
-	"ca-library-app/internal/adapters/db/author"
-	"ca-library-app/internal/adapters/db/book"
-	author2 "ca-library-app/internal/domain/author"
-	book2 "ca-library-app/internal/domain/book"
+	"ca-library-app/internal/composites"
+	"fmt"
 )
 
 func main() {
 	// entry point
-	bookStorage := book.NewStorage()
-	bookService := book2.NewService(bookStorage)
-	book3.NewHandler(bookService)
+	authorComposite, err := composites.NewAuthorComposite()
+	if err != nil {
+	}
 
-	authorStorage := author.NewStorage()
-	authorService := author2.NewService(authorStorage)
-	author3.NewHandler(authorService)
+	bookComposite, err := composites.NewBookComposite()
+	if err != nil {
+	}
 
 	// register in router
+	fmt.Println(authorComposite, bookComposite)
 }
