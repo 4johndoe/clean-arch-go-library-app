@@ -13,8 +13,8 @@ type AuthorComposite struct {
 	Handler api.Handler
 }
 
-func NewAuthorComposite() (*AuthorComposite, error) {
-	storage := author3.NewStorage()
+func NewAuthorComposite(mongoComposite *MongoDBComposite) (*AuthorComposite, error) {
+	storage := author3.NewStorage(mongoComposite.db)
 	service := author.NewService(storage)
 	handler := author2.NewHandler(service)
 

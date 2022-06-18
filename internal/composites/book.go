@@ -13,8 +13,8 @@ type BookComposite struct {
 	Handler api.Handler
 }
 
-func NewBookComposite() (*BookComposite, error) {
-	storage := book3.NewStorage()
+func NewBookComposite(mongoComposite *MongoDBComposite) (*BookComposite, error) {
+	storage := book3.NewStorage(mongoComposite.db)
 	service := book.NewService(storage)
 	handler := book2.NewHandler(service)
 
