@@ -1,4 +1,4 @@
-package author
+package dto
 
 type CreateAuthorDto struct {
 	Name string `json:"name"`
@@ -6,7 +6,7 @@ type CreateAuthorDto struct {
 }
 
 type UpdateAuthorDto struct {
-	UUID string `json:"uuid"`
+	ID   string `json:"id"`
 	Name string `json:"name"`
 	Age  int    `json:"year"`
 }

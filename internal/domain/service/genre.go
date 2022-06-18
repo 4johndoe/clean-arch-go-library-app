@@ -6,8 +6,8 @@ import (
 )
 
 type GenreStorage interface {
-	GetByUUID(ctx context.Context, id string) *entity.Genre
-	GetAll(ctx context.Context, limit, offset int) []*entity.Genre
+	GetByID(ctx context.Context, id string) entity.Genre
+	GetAll(ctx context.Context, limit, offset int) []entity.Genre
 	//Create(ctx context.Context, author2 *entity.Author) *entity.Author
 }
 
@@ -20,14 +20,14 @@ func NewGenreService(storage GenreStorage) *genreService {
 }
 
 //func (s *genreService) Create(ctx context.Context) *entity.Genre {
-//	//author := s.authorService.GetByUUID(ctx, dto.AuthorUUID) check if exists
+//	//author := s.authorService.GetByID(ctx, dto.AuthorID) check if exists
 //	return nil
 //}
 
-func (s *genreService) GetByUUID(ctx context.Context, id string) *entity.Genre {
-	return s.storage.GetByUUID(ctx, id)
+func (s genreService) GetByID(ctx context.Context, id string) entity.Genre {
+	return s.storage.GetByID(ctx, id)
 }
 
-func (s *genreService) GetAll(ctx context.Context, limit, offset int) []*entity.Genre {
+func (s genreService) GetAll(ctx context.Context, limit, offset int) []entity.Genre {
 	return s.storage.GetAll(ctx, limit, offset)
 }
