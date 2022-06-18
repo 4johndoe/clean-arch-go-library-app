@@ -18,4 +18,6 @@ func main() {
 	authorStorage := author.NewStorage()
 	authorService := author2.NewService(authorStorage)
 	author3.NewHandler(authorService)
+
+	// register in router
 }
