@@ -6,7 +6,7 @@ import (
 )
 
 type Service interface {
-	GetBookByUUID(ctx context.Context, uuid string) *book.Book
-	GetAllBooks(ctx context.Context, limit, offset int) []*book.Book
-	CreateBook(ctx context.Context, dto *book.CreateBookDto) *book.Book
+	GetByUUID(ctx context.Context, uuid string) *book.Book
+	GetAll(ctx context.Context, limit, offset int) []*book.Book
+	Create(ctx context.Context, dto *book.CreateBookDto) *book.Book
 }

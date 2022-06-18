@@ -1,14 +1,17 @@
 package book
 
-import "fmt"
+import (
+	"ca-library-app/internal/domain/author"
+	"fmt"
+)
 
 type Book struct {
-	UUID   string `json:"uuid"`
-	Name   string `json:"name"`
-	Year   int    `json:"year"`
-	Author string `json:"author"`
-	Busy   bool   `json:"busy"`
-	Owner  string `json:"owner"`
+	UUID   string        `json:"uuid"`
+	Name   string        `json:"name"`
+	Year   int           `json:"year"`
+	Author author.Author `json:"author"`
+	Busy   bool          `json:"busy"`
+	Owner  string        `json:"owner"`
 }
 
 func (b *Book) Take(owner string) error {
